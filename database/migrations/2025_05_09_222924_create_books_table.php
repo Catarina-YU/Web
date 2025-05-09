@@ -15,15 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
 
-            $table->unsignedBigInteger('author_id');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('publisher_id');
+            $table->foreignId('author_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('publisher_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
-
-        //     $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
-        //     $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-        //     $table->foreign('publisher_id')->references('id')->on('publishers')->onDelete('cascade');
         });
     }
 
