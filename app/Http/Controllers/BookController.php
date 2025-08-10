@@ -9,10 +9,16 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Gate;
 
 
 class BookController extends Controller
 {
+        public function __construct()
+    {
+        $this->authorizeResource(Book::class, 'book');
+    }
+    
     public function index()
     {
         $books = Book::with('author')->paginate(20);
