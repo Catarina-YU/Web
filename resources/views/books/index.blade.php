@@ -11,10 +11,10 @@
         @endif
 
         <a href="{{ route('books.create.id') }}" class="btn btn-success mb-3">
-            <i class="bi bi-plus"></i> Adicionar Livro (Com ID)
+            <i class="bi bi-plus"></i> Adicionar Livro
         </a>
         <a href="{{ route('books.create.select') }}" class="btn btn-primary mb-3">
-            <i class="bi bi-plus"></i> Adicionar Livro (Com Select)
+            <i class="bi bi-plus"></i> Adicionar Livro
         </a>
 
         <table class="table table-striped">
