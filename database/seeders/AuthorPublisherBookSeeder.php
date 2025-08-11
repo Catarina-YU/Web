@@ -17,6 +17,7 @@ class AuthorPublisherBookSeeder extends Seeder
 
             $author->books()->createMany(
                 Book::factory(10)->make([
+                    'url_image' => '',
                     'category_id' => Category::inRandomOrder()->first()->id,
                     'publisher_id' => $publisher->id
                 ])->toArray()

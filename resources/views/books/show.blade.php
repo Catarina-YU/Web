@@ -9,6 +9,11 @@
             <strong>Título:</strong> {{ $book->title }}
         </div>
         <div class="card-body">
+            @if($book->url_image)
+                <div class="mb-3 text-center">
+                    <img src="{{ asset('storage/' . $book->url_image) }}" alt="Capa do Livro" class="img-fluid rounded" style="max-height: 300px;">
+                </div>
+            @endif
             <p><strong>Autor:</strong>
                 <a href="{{ route('authors.show', $book->author->id) }}">
                     {{ $book->author->name }}
@@ -31,6 +36,18 @@
     <div class="card mb-4">
         <div class="card-header">Registrar Empréstimo</div>
         <div class="card-body">
+
+            <!-- Exibição de erros -->
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form action="{{ route('books.borrow', $book) }}" method="POST">
                 @csrf
                 <div class="mb-3">
