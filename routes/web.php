@@ -43,3 +43,6 @@ Route::get('/users/{user}/borrowings', [BorrowingController::class, 'userBorrowi
 
 // Rota para registrar a devolução
 Route::patch('/borrowings/{borrowing}/return', [BorrowingController::class, 'returnBook'])->name('borrowings.return');
+
+// Rota para limpar
+Route::post('/users/{user}/clear-debt', [BorrowingController::class, 'clearDebt'])->name('users.clear-debt');
